@@ -7,6 +7,8 @@ __pycache__/
 # Custom
 # Ignore files
 *.psd
+*.docx
+
 
 # Ignore directories
 /www/static/react/
