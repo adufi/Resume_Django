@@ -11,6 +11,7 @@ __pycache__/
 # Ignore directories
 /www/static/react/
 /www/static/img_ignore/
+/www/templates/www - Copie/
 
 
 # C extensions
