@@ -9,6 +9,7 @@ __pycache__/
 *.psd
 
 # Ignore directories
+/www/static/react/
 /www/static/img_ignore/
 
 
