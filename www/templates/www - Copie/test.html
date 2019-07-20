@@ -1,0 +1,672 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+	<style type="text/css">
+		body {
+			width: 100%;
+			/*height: 100vh;*/
+			/*overflow: hidden;*/
+
+			margin: 0;
+			padding: 0;
+			background: black;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="test3">
+		<!-- 
+			Background
+				Titles
+				Messages
+				Character
+				Moon
+			About
+			Background
+				Stickers
+				Rocket
+			Skills
+			PDFs
+			Projects
+			Socials
+			Background
+				Satellite
+			Contacts
+			Background
+				Antenna
+			Bye - See you soon I hope
+		 -->
+
+		<style type="text/css">
+			.parallax {
+				background-attachment: fixed;
+			}
+
+			.parallax-background {}
+
+
+			.parallax-foreground {
+				width: 100%;
+				min-height: 100vh;
+
+				position: relative;
+			}
+
+			.transparent {
+				width: 100%;
+				height: 100vh;
+				background-color: transparent;
+			}
+
+			#about {
+
+			}
+			
+		</style>
+		
+		<div id="background" class="parallax">
+
+			<div id="stars"></div>
+		</div>
+
+		<div id="layer-1">
+
+			<div id="about">
+
+				<div class="texts">
+					<p class="paragraph">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis augue luctus ante tempor tincidunt in sit amet risus. Vestibulum ut blandit odio. Fusce at interdum arcu. Duis faucibus sollicitudin leo, eget ultrices est interdum ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eleifend est ac enim laoreet, vel tincidunt enim pharetra. Donec in vulputate mauris. Quisque aliquet a ipsum non sollicitudin.
+					</p>
+				</div>
+			</div>
+
+
+			<div id="stickers" class="parallax">
+				
+			</div>
+
+
+			<div id="skills">
+				
+			</div>
+
+
+			<div id="pdfs">
+				<img src="{% static 'img/icons/PDF-8bit.png' %}">
+				<img src="{% static 'img/icons/PDF-8bit.png' %}">
+			</div>
+
+			<div id="filler" class="parallax">
+				
+			</div>
+
+
+			<div id="projects">
+				Projects
+			</div>
+
+
+			<div id="contacts">
+				Socials + Contacts
+			</div>
+
+		</div>
+
+		<script type="text/javascript">
+			
+			class EventsStack {
+				constructor() {
+
+					/* Event
+						callback
+						millisecond
+						lastTimestamp
+						allowRender
+
+					*/
+					this._events = [];
+				}
+
+				register(callback, millisecond) {
+					return this._events.push(
+					{
+						callback: callback,
+						millisecond: millisecond,
+						lastTimestamp: 0,
+						allowRender: false,
+					});
+				}
+
+				unregister(id) {
+					this._events.splice(id, 1);
+				}
+
+				test() {
+					console.log(this._events);
+				}
+
+
+				update(timestamp) {
+					// console.log('EventsStack - update()');
+
+					for (let event of this._events) {
+						if ((timestamp - event.lastTimestamp) > event.millisecond) {
+							event.lastTimestamp = timestamp;
+							event.allowRender = true;
+						}
+					}
+				}
+
+				render() {
+					for (let event of this._events) {
+						if (event.allowRender) {
+							event.callback();
+							event.allowRender = false;
+						}
+					}
+				}
+			}
+
+
+			class Stars {
+				constructor() {
+				
+					this._state = 0;
+					this._stars = document.getElementById('stars');
+				}
+
+				update() {
+
+					console.log(this._state);
+
+					switch (this._state) {
+
+						// Create stars
+						// Add fade in effect
+						// Wait 2s
+						case 0:
+							this.create();
+							this._stars.classList.add('show');
+							this._state = 1;
+							break;
+
+						// Do nothing Wait 2s
+						case 1:
+							this._state = 2;
+							break;
+
+						// Fade out stars
+						// Wait 2s
+						case 2:
+							this._stars.classList.remove('show');
+							this._state = 3;
+							break;
+
+
+						// Remove stars
+						// Wait 2s
+						case 3:
+							this.remove();
+							this._state = 0;
+							break;
+					}
+				}
+
+				create() {
+					/*
+						From Canvas Night Sky
+						By Tamuna
+						https://codepen.io/AlienPiglet/pen/hvekG
+					*/
+					var c = document.createElement('canvas');
+						this._stars.appendChild(c);
+
+					var ctx = c.getContext('2d');
+
+					const xMax = c.width = window.screen.availWidth;
+					const yMax = c.height = window.screen.availHeight;
+				
+					const hmTimes = Math.round(xMax + yMax);
+						
+					for(var i=0; i<=hmTimes; i++) {
+					  	var randomX = Math.floor((Math.random()*xMax)+1);
+					  	var randomY = Math.floor((Math.random()*yMax)+1);
+					  	var randomSize = Math.floor((Math.random()*2)+1);
+					  	var randomOpacityOne = Math.floor((Math.random()*9)+1);
+					  	var randomOpacityTwo = Math.floor((Math.random()*9)+1);
+					  	var randomHue = Math.floor((Math.random()*360)+1);
+
+				    	if (randomSize > 1) {
+				      		ctx.shadowBlur = Math.floor((Math.random()*15)+5);
+				      		ctx.shadowColor = "white";
+					  	}
+				    	
+				    	ctx.fillStyle = "hsla("+randomHue+", 30%, 80%, ."+randomOpacityOne+randomOpacityTwo+")";
+					  	ctx.fillRect(randomX, randomY, randomSize, randomSize);
+					}
+				}
+
+				remove() {
+					document.querySelector('#stars canvas').remove();
+				}
+			}
+
+
+			var es = new EventsStack();
+			var stars = new Stars();
+
+			function init() {
+				// Stars
+				// stars.run(false);
+				// create_stars();
+
+
+				es.register(function() {
+					stars.update();
+				}, 2000);
+				es.test();
+			}
+
+			function mainloop(timestamp) {
+
+				es.update(timestamp);
+				es.render(timestamp);
+
+				requestAnimationFrame(mainloop);
+			}
+
+			window.onload = function() {
+
+				init();
+				requestAnimationFrame(mainloop);
+			}
+		</script>
+	</div>
+
+	<!-- <div id="test2">
+
+		<style type="text/css">
+			#stars {
+				width: 100%;
+				height: 100%;
+
+				opacity: 0;
+				transition: opacity 2s;
+
+				top: 0;
+				left: 0;
+				z-index: 0;
+				position: absolute;
+			}
+
+			#stars.show {
+				opacity: 1;
+			}
+		</style>
+		
+		<div id="stars"></div>
+
+
+		<script type="text/javascript">
+			
+			class EventsStack {
+				constructor() {
+
+					/* Event
+						callback
+						millisecond
+						lastTimestamp
+						allowRender
+
+					*/
+					this._events = [];
+				}
+
+				register(callback, millisecond) {
+					return this._events.push(
+					{
+						callback: callback,
+						millisecond: millisecond,
+						lastTimestamp: 0,
+						allowRender: false,
+					});
+				}
+
+				unregister(id) {
+					this._events.splice(id, 1);
+				}
+
+				test() {
+					console.log(this._events);
+				}
+
+
+				update(timestamp) {
+					// console.log('EventsStack - update()');
+
+					for (let event of this._events) {
+						if ((timestamp - event.lastTimestamp) > event.millisecond) {
+							event.lastTimestamp = timestamp;
+							event.allowRender = true;
+						}
+					}
+				}
+
+				render() {
+					for (let event of this._events) {
+						if (event.allowRender) {
+							event.callback();
+							event.allowRender = false;
+						}
+					}
+				}
+			}
+
+
+			class Stars {
+				constructor() {
+				
+					this._state = 0;
+					this._stars = document.getElementById('stars');
+				}
+
+				update() {
+
+					console.log(this._state);
+
+					switch (this._state) {
+
+						// Create stars
+						// Add fade in effect
+						// Wait 2s
+						case 0:
+							this.create();
+							this._stars.classList.add('show');
+							this._state = 1;
+							break;
+
+						// Do nothing Wait 2s
+						case 1:
+							this._state = 2;
+							break;
+
+						// Fade out stars
+						// Wait 2s
+						case 2:
+							this._stars.classList.remove('show');
+							this._state = 3;
+							break;
+
+
+						// Remove stars
+						// Wait 2s
+						case 3:
+							this.remove();
+							this._state = 0;
+							break;
+					}
+				}
+
+				create() {
+					/*
+						From Canvas Night Sky
+						By Tamuna
+						https://codepen.io/AlienPiglet/pen/hvekG
+					*/
+					var c = document.createElement('canvas');
+						this._stars.appendChild(c);
+
+					var ctx = c.getContext('2d');
+
+					const xMax = c.width = window.screen.availWidth;
+					const yMax = c.height = window.screen.availHeight;
+				
+					const hmTimes = Math.round(xMax + yMax);
+						
+					for(var i=0; i<=hmTimes; i++) {
+					  	var randomX = Math.floor((Math.random()*xMax)+1);
+					  	var randomY = Math.floor((Math.random()*yMax)+1);
+					  	var randomSize = Math.floor((Math.random()*2)+1);
+					  	var randomOpacityOne = Math.floor((Math.random()*9)+1);
+					  	var randomOpacityTwo = Math.floor((Math.random()*9)+1);
+					  	var randomHue = Math.floor((Math.random()*360)+1);
+
+				    	if (randomSize > 1) {
+				      		ctx.shadowBlur = Math.floor((Math.random()*15)+5);
+				      		ctx.shadowColor = "white";
+					  	}
+				    	
+				    	ctx.fillStyle = "hsla("+randomHue+", 30%, 80%, ."+randomOpacityOne+randomOpacityTwo+")";
+					  	ctx.fillRect(randomX, randomY, randomSize, randomSize);
+					}
+				}
+
+				remove() {
+					document.querySelector('#stars canvas').remove();
+				}
+			}
+
+
+
+
+			var es = new EventsStack();
+			var stars = new Stars();
+
+			function init() {
+				// Stars
+				// stars.run(false);
+				// create_stars();
+
+
+				es.register(function() {
+					stars.update();
+				}, 2000);
+				es.test();
+			}
+
+			function mainloop(timestamp) {
+
+				es.update(timestamp);
+				es.render(timestamp);
+
+				requestAnimationFrame(mainloop);
+			}
+
+			window.onload = function() {
+
+				init();
+				requestAnimationFrame(mainloop);
+			}
+		</script>
+	</div> -->
+
+
+	<!-- <div id="test1" style="display: none;">
+
+		<style type="text/css">
+			#stars {
+				width: 100%;
+				height: 100%;
+
+				top: 0;
+				left: 0;
+				z-index: 0;
+				position: absolute;
+			}
+
+			#glitch {
+				width: 100%;
+				height: 100%;
+				background: black;
+
+				z-index: 1;
+	    		position: relative;
+			}
+		</style>
+		
+		<div id="stars"></div>
+
+		<div id="glitch">
+			
+		</div>
+
+		<script type="text/javascript">
+			window.onload = function() {
+
+				class Stars {
+					constructor() {
+
+						// time between creation and destruction
+						this._timeBetween = 5000;
+
+						// 
+						this._lastTimestamp = 0;
+
+						// true = if stars was removed
+						// false = if stars was created
+						this._hasStars = false;
+
+						// 
+						this._run = true;
+
+						// 
+						this._state = 0;
+					}
+
+					run(value) {
+						if (!(this._run = value)) {
+							if (this._hasStars)
+								this._state = 3;
+
+							else 
+								this._state = 0;
+						}
+						else {
+							if (this._hasStars)
+								this._state = 1;
+
+							else 
+								this._state = 0;
+						}
+					}
+
+					update(timestamp) {
+						switch(this._state) {
+
+							// Create stars
+							case 0:
+		 						this.create();
+		 						this._hasStars = true;
+
+		 						if (this._run)
+		 							this._state = 1;
+
+		 						else
+		 							this._state = 3;
+		 						break;
+
+
+		 					// Wait n seconds
+		 					case 1:
+		 						if ((timestamp - this._lastTimestamp) > this._timeBetween) {
+		 							this._state = (this._hasStars) ? 2 : 0;
+		 							this._hasStars ^= 1;
+		 							this._lastTimestamp = timestamp;
+		 						}
+		 						break;
+
+
+		 					// Remove stars
+		 					case 2:
+		 						this.remove();
+		 						this._state = 1;
+		 						break;
+
+
+		 					// Do nothing
+		 					case 3:
+		 						break;
+						}
+					}
+
+					render() {}
+
+					create() {
+						/*
+							From Canvas Night Sky
+							By Tamuna
+							https://codepen.io/AlienPiglet/pen/hvekG
+						*/
+						var c = document.createElement('canvas');
+						var stars = document.getElementById('stars');
+							stars.appendChild(c);
+
+						var ctx = c.getContext('2d');
+
+						const xMax = c.width = window.screen.availWidth;
+						const yMax = c.height = window.screen.availHeight;
+					
+						const hmTimes = Math.round(xMax + yMax);
+							
+						for(var i=0; i<=hmTimes; i++) {
+						  	var randomX = Math.floor((Math.random()*xMax)+1);
+						  	var randomY = Math.floor((Math.random()*yMax)+1);
+						  	var randomSize = Math.floor((Math.random()*2)+1);
+						  	var randomOpacityOne = Math.floor((Math.random()*9)+1);
+						  	var randomOpacityTwo = Math.floor((Math.random()*9)+1);
+						  	var randomHue = Math.floor((Math.random()*360)+1);
+
+					    	if (randomSize > 1) {
+					      		ctx.shadowBlur = Math.floor((Math.random()*15)+5);
+					      		ctx.shadowColor = "white";
+						  	}
+					    	
+					    	ctx.fillStyle = "hsla("+randomHue+", 30%, 80%, ."+randomOpacityOne+randomOpacityTwo+")";
+						  	ctx.fillRect(randomX, randomY, randomSize, randomSize);
+						}
+					}
+
+					remove() {
+						document.querySelector('#stars canvas').remove();
+					}
+				}
+
+				var s = new Stars();
+					s.run(false);
+					s.update();
+
+				var glitch = document.getElementById('glitch');
+				var glitch_left = 0;
+
+				var lastTimestamp = 0;
+
+				function loop(timestamp) {
+
+					if ((timestamp - lastTimestamp) > (1000 / 300)) {
+						glitch.style.marginLeft = glitch_left + 'px';
+
+						if (glitch_left >= window.innerWidth) {
+							glitch_left = -window.innerWidth;
+						}
+						else {
+							++glitch_left;
+						}
+
+						lastTimestamp = timestamp;
+					}
+
+					requestAnimationFrame(loo);
+				}
+				loop();
+			}
+		</script>
+	</div> -->
+</body>
+</html>

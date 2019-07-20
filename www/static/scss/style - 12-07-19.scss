@@ -16,9 +16,6 @@
 body {
 	margin: 0;
 	padding: 0;
-
-	height: 100vh;
-	/*overflow: hidden;*/
 }
 
 a {
@@ -206,7 +203,6 @@ li {
 	****************************************************/
 	.flex-list {
 		display: flex;
-		text-align: center;
 
 		&.flex-list-row {
 			flex-flow: row wrap;
@@ -354,16 +350,6 @@ li {
 
 	@extend .font-press-start;
 
-	/****************************************************
-		Z-INDEX TABLE
-			#background: 0
-			#stars: 10
-			#foreground: 100
-			#titles: 110
-			#messages: 120
-				#msg-box: 130
-	****************************************************/
-
 
 	/****************************************************
 		HEADER
@@ -376,23 +362,6 @@ li {
 		font-size: 20px;
 
 		@extend .font-8bit-wonder;
-	}
-
-
-	/****************************************************
-		SECTION
-	****************************************************/
-	.section {
-
-		.section-title {
-			width: 100%;
-		    max-width: 980px;
-		    margin: 1em auto;
-		    padding-left: 5px;
-		    box-sizing: border-box;
-
-		    @extend .font-8bit-wonder;
-		}
 	}
 
 
@@ -452,7 +421,6 @@ li {
 
 		z-index: 100;
 		position: relative;
-		overflow: hidden;
 	}
 
 
@@ -491,7 +459,7 @@ li {
     	align-items: center;
     	flex-flow: column;
 
-    	z-index: 110;
+    	z-index: 20;
 		position: relative;
 
 		@extend .font-press-start;
@@ -501,9 +469,7 @@ li {
 		}
 
 		.name {
-			width: 100;
-			min-width: 320px;
-			max-width: 500px;
+			width: 500px;
 
 			img {
 				width: 100%;
@@ -516,67 +482,6 @@ li {
 
 
 	/****************************************************
-		MESSAGES
-	****************************************************/
-	#messages {
-		height: 140px;
-		color: black;
-
-		display: flex;
-		flex-flow: row;
-		align-items: flex-end;
-		justify-content: center;
-
-		z-index: 120;
-		position: relative;
-
-		.message {
-			width: 300px;
-			margin: 10px;
-			padding: 10px;
-			box-sizing: border-box;
-
-			color: rgba(black, 0.5);
-	    	font-size: 14px;
-
-	    	line-height: 18px;
-	    	letter-spacing: 2px;
-			
-
-			background: white;
-
-			@extend .font-press-start;
-		}
-
-		#msg-box-list {
-			max-width: 300px;
-			font-size: 14px;
-
-			top: 0;
-			left: 0;
-			position: absolute;
-			visibility: visible;
-	
-			.message {
-				top: 0;
-				left: 0;
-				position: absolute;
-			}
-		}
-
-		#msg-box {
-			display: none;			
-
-			&.active {
-				display: block;
-				z-index: 120;
-				position: relative;
-			}
-		}
-	}
-
-
-	/****************************************************
 		ABOUT
 	****************************************************/
 	#about-me {
@@ -585,8 +490,8 @@ li {
 		color: rgba(black, 0.5);
 		background-color: white;
 
-		/*z-index: 30;
-		position: relative;*/
+		z-index: 1;
+		position: relative;
 	}
 
 
@@ -623,18 +528,14 @@ li {
 		& #rocket-glitch {
 			height: 100%;
 
-			/*z-index: 40;
-			position: relative;*/
+			z-index: 0;
+			position: relative;
 			transform: rotate(-10deg);
 
 			background-image: url(../img/rocket.png);
 			background-size: initial;
 			background-repeat: no-repeat;
 			background-position: center;
-
-			@media (max-width: 856px) {
-				background-size: contain;
-			}
 		}
 	}
 
@@ -646,8 +547,8 @@ li {
 		padding: 2em 0;
     	background-color: #8b3270;
 
-    	/*z-index: 50;
-    	position: relative;*/
+    	z-index: 1;
+    	position: relative;
 	}
 
 
@@ -666,18 +567,19 @@ li {
 			flex-flow: row wrap;
 			justify-content: center;
 
-			.retro-borders {
-				padding: 15px;
-			}
-
 			.b1 {
 				padding: 1px 5px;
 				@include step3v2(3px, white, black);
 			}
 
 			.b2 {
-				overflow-x: auto;
 				@include step2v2(3px, white, black);
+			}
+
+			& > div {
+				/*width: 50%;
+				max-width: 980px;*/
+				padding: 12px;
 			}
 
 			.skills-texts {
@@ -686,19 +588,9 @@ li {
 			}
 
 			.skills-tab {
-				overflow: hidden;
-
-				.b2 {
-				}
 
 				table {
-					/*width: 100%;*/
-					max-width: 700px;
-					padding: 10px;
-
-					display: block;
-					box-sizing: content-box;
-
+					width: 100%;
 					border: none;
 
 					thead {
@@ -811,76 +703,132 @@ li {
 		PROJECTS - Page Section
 				+
 		PROJECTS - Widget
-				+
-		TABLET
 	****************************************************/
 	#projects {
-		padding: 1em 0;
+		padding: 5em 0;
 
-		/* For Scifi Nav */
-		@media (max-width: 500px) {
-			padding: 0;
-			padding-top: 1em;
-		}
-
-		.project {
-			width: 280px;
-			max-height: calc(100vh - 100px);
-
-			overflow-y: auto;
-
-			padding-bottom: 20px;
+		h3 {
+			margin: 0;
+			padding: 10px;
 			text-align: center;
 
-			.project__header {
+			color: #8B3270;
+			color: #2D5D74;
+			color: white;
 
-				.project__title {
-					margin: 0;
+	    	background: #2D5D74;
+			background: #8B3270;
+			background: #383B38;
+
+			@extend .font-8bit-wonder;
+		}
+
+		.projects-list {
+			width: 980px;
+			margin: auto;
+
+			li.projects-item {
+				margin: 20px 0;
+				border-bottom: 5px solid #383B38;
+
+				&:first-child {
+					/*border-top: 5px solid #383B38;*/
+				}
+				&:last-child {
+					border-bottom: none;
+				}
+
+				.head {
+					display: flex;
+					flex-flow: row wrap;
+					align-items: center;
+					justify-content: space-between;
+
 					padding: 10px;
 
-					color: #8B3270;
-					color: #2D5D74;
-					color: white;
-
-			    	background: #2D5D74;
-					background: #8B3270;
-					background: #383B38;
-
-					@extend .font-8bit-wonder;
-				}
-			}
-
-			.project__body {
-				padding: 0 5px;
-
-				.project__image {
-					height: 200px;
+					font-size: 20px;
 
 					img {
-						width: 100%;
-						height: 100%;
+						height: 150px;
+					}
+					p {
+						@extend .font-8bit-wonder;
+					}
+					i {
+						font-size: 30px;
+						&.fa-toggle-on { color: #3A9435; }
+						&.fa-toggle-off { color: #B74842; }
 					}
 				}
 
-				.project__desc {
-					font-size: 13px;
+				.body {
+					padding: 0 10em;
+					padding-bottom: 20px;
+
+					display: none;
+
+					.paragraph {}
+
+					.links {
+						text-align: center;
+
+						.links-item {
+							max-width: 50px;
+    						max-height: 50px;
+    						text-decoration: none;
+    						display: inline-block;
+
+							img {
+								width: 100%;
+								height: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.toggle {			
+
+			.contener {
+				width: 44px;
+				height: 24px;
+				padding: 2px;
+
+				/* border: 1px solid black; */
+				outline: 1px solid;
+				outline-offset: 2px;
+				overflow: hidden;
+				
+				background: #B74842;
+
+				& > div {
+					width: 50%;
+					height: 100%;
+					
+					float: left;
+					display: inline-block;
+					
+					font-size: 12px;
+					text-align: center;
+					line-height: 24px
 				}
 
-				.project__tags {}
+				.on {
+					visibility: hidden;
+				}
+				.off {
+					visibility: visible;
+				}
 
-				.project__links {
-					text-align: center;
+				&.active {
+					background: #3A9435;
 
-					&__item {
-						width: 50px;
-						height: 50px;
-						text-decoration: none;
-						display: inline-block;
-
-						img {
-							width: 100%;
-							height: 100%;
-						}
+					.on {
+						visibility: visible;
+					}
+					.off {
+						visibility: hidden;
 					}
 				}
 			}
@@ -889,35 +837,26 @@ li {
 		.tablet {
 			margin: auto;
 			display: table;
-			/*padding: 20px;*/
-
-			z-index: 62;
-			position: relative;
 
 			.content {
 				position: relative;
 			}
 
-			.b1,
-			.b2 {
-				position: relative;
-			}
-
 			.b1 {
-				padding: 10px;
+				padding: 0px 30px;
 				background: #282528;
-				@include step2v2(10px, white, #282528);
+				@include step2v2(20px, white, #282528);
 			}
 
 			.b2 {
 				z-index: 1;
 				position: relative;
 				background: black;
-				@include step1(10px, white);
+				@include step1(20px, white);
 			}
 
 			.screen {
-				/*width: 100%;*/
+				width: 100%;
 				height: auto;
 				background: #090A09;
 			}
@@ -926,43 +865,16 @@ li {
 				width: 20px;
     			height: 20px;
     			margin: auto;
-    			margin-bottom: 10px;
-				background: black;
-				border-radius: 50%;
-
-				top: 10;
-				right: 10;
-				position: absolute;
-
-				display: none;
+    			margin-bottom: 40px;
+				background: white;
 			}
 
-			.buttons {
-				width: 100%;
-    			height: 40px;
-
-				color: white;
-				background: #090A09;
-				display: flex;
-				flex-flow: row nowrap;
-				align-items: center;
-				justify-content: space-around;
-
-				div {
-					cursor: pointer;
-				}
-
-				.buttons__prev {}
-
-				.buttons__close {
-					width: 20px;
-					height: 20px;
-
-					border: 2px solid white;
-					box-sizing: border-box;
-				}
-
-				.buttons__next {}
+			.button {
+				width: 50px;
+    			height: 50px;
+    			margin: auto;
+    			margin-top: 40px;
+				background: white;
 			}
 
 			.glitches {
@@ -1008,14 +920,11 @@ li {
 		$halfBgGridSize: $bgGridSize / 2;
 		$bgGridLineColor: rgba($cyan, .1);
 		$bgGridLineStroke: 1px;
-		$orbitSizeBig: 8em;
-		$orbitSizeSmall: 15em;
+		$orbitSize: 8em;
 		$satelliteSize: .5em;
 		$orbitStroke: $satelliteSize / 2;
 		$orbitsLength: 6;
 		$animationDuration: 40s;
-		$orbitPaddingBig: 2em;
-		$orbitPaddingSmall: 14em;
 
 		$blueDark: #11171d;
 
@@ -1067,15 +976,14 @@ li {
 		        display: flex;
 		        align-items: center;
 
-		        transform: translate(-50%, -50%) rotateX(65deg);
-
 		        @for $i from 1 through $orbitsLength {
-		            $thisColor: hsl(0deg - ($i * 30), 100%, 72%);
-			        
-			        &:nth-child(#{$i}) {
-		                width: $orbitSizeSmall + (2 * $i);
-		                height: $orbitSizeSmall + (2 * $i);
+		            $thisColor: hsl(190deg - ($i*25), 100%, 72%);
+		            &:nth-child(#{$i}) {
+		                width: $orbitSize + (2 * $i);
+		                height: $orbitSize + (2 * $i);
 		                z-index: $orbitsLength - $i;
+
+		                transform: translate(-50%, -50%) rotateX(65deg);
 		                
 		                .scifi-nav__label,
 		                .scifi-nav__satellite,
@@ -1087,14 +995,12 @@ li {
 		                }
 		                .scifi-nav__label {
 		                    color: $thisColor;
-
-		                    /*&:before {
+		                    &:before {
 		                        content: '0'+$i;
 		                        color: rgba($white, .75);
 		                        padding-right: .5em;
-		                    }*/
+		                    }
 		                }
-		                
 		            }
 		        }
 		        &:before {
@@ -1139,7 +1045,7 @@ li {
 		            width: $satelliteSize;
 		            height: $satelliteSize;
 		            position: absolute;
-		            right: -0.25em;
+		            right: 0;
 		            top: calc(50% - #{$satelliteSize/2});
 		            border-radius: 50%;
 		            transform: rotate(0) rotateX(-90deg);
@@ -1180,53 +1086,6 @@ li {
 		}
 
 
-		@media (max-width: 500px) {
-			& {
-				padding: 0;
-				padding-top: $orbitPaddingSmall + $orbitsLength;
-
-				.scifi-nav {
-					&__orbit {
-						@for $i from 1 through $orbitsLength {
-							&:nth-child(#{$i}) {
-				                width: $orbitSizeSmall; /* + (2 * $i);*/
-				                height: $orbitSizeSmall; /* + (2 * $i);*/
-
-				                transform: translate(-50%, -50%) translateY(-20em + ($i * 2)) rotateX(65deg);
-				            }
-						}
-
-						&:before {
-							border-width: 2px;
-						}
-					}
-				}
-
-				.hologram {
-					display: none;
-				}
-			}
-		}
-
-		@media (min-width: 501px) {
-			& {
-				padding: ($orbitPaddingBig + $orbitsLength) 0;
-				.scifi-nav {
-					&__orbit {
-						@for $i from 1 through $orbitsLength {
-							&:nth-child(#{$i}) {
-				                /*width: $orbitSizeBig + (2 * $i);
-				                height: $orbitSizeBig + (2 * $i);*/
-
-				                /*transform: translate(-50%, -50%) rotateX(65deg);*/
-				            }
-						}
-					}
-				}
-			}
-		}
-
-
 		@keyframes lightVibration {
 		    50% {
 		        opacity: .25;
@@ -1255,7 +1114,7 @@ li {
 
 		top: 0;
 		left: 0;
-		z-index: 60;
+		z-index: 1;
 		position: fixed;
 
 		background-color: rgba(black, 0.5);
@@ -1269,23 +1128,22 @@ li {
 			display: flex;
 		}
 
-		.modal__bg {
-			width: 100%;
-			height: 100%;
-
-			top: 0;
-			left: 0;
-			z-index: 61;
-			position: absolute;
-
-			background-color: transparent;
-		}
-
 		.modal__content {
 			width: 100%;
 			height: 100%;
 
 			/*background: white;*/
+
+			.modal__close {}
+
+			.modal__title {}
+
+			.modal__image {}
+
+			.modal__desc {}
+
+			.modal__tags {}
+
 		}
 	}
 
@@ -1296,8 +1154,7 @@ li {
 	#antenne,
 	#satellite {
 		width: 100%;
-		padding: 2em 0.5em;
-		box-sizing: border-box;
+		padding: 2em 0;
 
 		img { width: 100px; }
 	}
@@ -1328,24 +1185,21 @@ li {
   		background: -o-linear-gradient(#00111e 30%, #033d5e);
   		background: linear-gradient(#00111e 30%, #033d5e);
 
-  		.important {
-   			width: 100%;
-  			max-width: 980px;
-  			margin: 1em auto;
-    		padding-left: 5px;
-  		}
-
   		&.active {
 			display: flex !important;
   		}
 
+  		h3 {
+  			width: 980px;
+  			margin: 1em auto;
+	  		
+	  		@extend .font-8bit-wonder;
+  		}
+
   		form {
-  			width: 100%;
-  			max-width: 980px;
+  			width: 980px;
 		    margin: auto;
 		    padding: 5px;
-
-		    box-sizing: border-box;
 
 		    /*display: block;*/
 		    display: flex;
@@ -1390,10 +1244,6 @@ li {
 			    	background-color: #076f34;
 			    }
 	  		}
-
-	  		input[disabled] {
-	  			cursor: not-allowed;
-	  		}
   		}
 	}
 
@@ -1414,7 +1264,58 @@ li {
 			
 
 			#messages {
-				
+				height: 140px;
+				color: black;
+
+				display: flex;
+    			flex-flow: row;
+    			align-items: flex-end;
+    			justify-content: center;
+
+    			z-index: 30;
+				position: relative;
+
+				.message {
+					width: 300px;
+					margin: 10px;
+					padding: 10px;
+    				box-sizing: border-box;
+
+    				color: rgba(black, 0.5);
+			    	font-size: 14px;
+
+			    	line-height: 18px;
+			    	letter-spacing: 2px;
+    				
+
+					background: white;
+
+					@extend .font-press-start;
+				}
+
+				#msg-box-list {
+					max-width: 300px;
+    				font-size: 14px;
+
+    				top: 0;
+    				left: 0;
+    				position: absolute;
+    				visibility: visible;
+			
+					.message {
+						top: 0;
+    					left: 0;
+    					position: absolute;
+					}
+				}
+
+				#msg-box {
+					display: none;			
+
+    				&.active {
+    					display: block;
+    				}
+				}
 			}
 
 			#character {

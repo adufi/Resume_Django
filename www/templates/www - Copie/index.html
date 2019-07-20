@@ -1,0 +1,1300 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arnaud's Resume</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- <link rel="stylesheet" type="text/css" href="vendor/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/all.min.css"> -->
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="icon" href="{% static 'img/favicon.png' %}" type="image/gif" sizes="16x16">
+
+</head>
+
+<style type="text/css">
+	@font-face {
+	  	font-family: "8bit_wonder";
+	  	src: url("{% static 'font/8bit_wonder/8-BIT WONDER.TTF' %}");
+	}
+</style>
+
+<body>
+
+	<div id="core">
+
+		<div id="page">
+				
+			<ul id="page__list">
+
+				<!-- ######################## DEFAULT PAGE ######################## -->
+				<li class="page__item active" id="default">
+
+					<div id="background">
+
+						<div id="stars">
+						</div>
+
+						<div id="titles">
+							<div class="name">
+								<img src="{% static 'img/Names.png' %}">
+							</div>
+
+							<div class="title">
+								<p>Front-end Web Developer</p>
+							</div>
+						</div>
+
+						<div id="messages">
+
+							<div id="msg-box-list">
+								<div class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu lorem sodales diam lobortis mollis sit amet in ipsum.</div>
+
+								<div class="message">Praesent dignissim sem sed est ultrices, vel sagittis nulla consectetur.</div>
+
+								<div class="message">Nam mollis mauris orci, a vehicula massa scelerisque sit amet. Curabitur gravida nulla in ornare ullamcorper.</div>
+
+								<div class="message">Nam eget diam ipsum. Pellentesque convallis ante dui, bibendum eleifend nibh malesuada vel.</div>
+
+								<div class="message">Aliquam eleifend risus at est scelerisque, sit amet porta augue rutrum. In a dictum justo.</div>
+							</div>
+
+							<div id="msg-box" class="message active"></div>
+						</div>
+
+						<div id="character">
+							
+						</div>
+
+						<div id="moon">
+							<picture>
+								<source media="(max-width: 500px)"
+										srcset="{% static 'img/moon/moon-500.png' %}">
+								<source media="(max-width: 1000px)"
+										srcset="{% static 'img/moon/moon-1000.png' %}">
+								<source media="(max-width: 2000px)"
+										srcset="{% static 'img/moon/moon-2000.png' %}">
+								<source media="(max-width: 3000px)"
+										srcset="{% static 'img/moon/moon-3000.png' %}">
+								<img src="{% static 'img/moon/moon.png' %}">
+							</picture>
+						</div>
+					</div>
+
+					<div id="foreground">
+						
+						<div id="menu__trigger">
+							<img src="{% static 'img/sun.gif' %}">
+							<span>Menu</span>
+						</div>
+
+						<div id="menu__glitch"></div>
+						
+						<nav id="menu">
+
+
+							<ul id="menu__list">
+
+								<li class="menu__item" target-id="about-me">
+									<div class="arrow arrow-right"></div>
+									About me
+								</li>
+
+								<li class="menu__item" target-id="skills">
+									<div class="arrow arrow-right"></div>
+									Skills
+								</li>
+
+								<li class="menu__item" target-id="projects">
+									<div class="arrow arrow-right"></div>
+									Projects
+								</li>
+
+								<li class="menu__item" target-id="contacts">
+									<div class="arrow arrow-right"></div>
+									Contacts
+								</li>
+								<li class="menu__item" target-id="back">
+									<div class="arrow arrow-right"></div>
+									Retour
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</li>
+
+
+				<!-- ######################## ABOUT ME ######################## -->
+				<li class="page__item" id="about-me">
+					<div class="page__header">
+						<p class="page__title">About me</p>
+						<div class="page__close">X</div>
+					</div>
+
+					<div class="page__body">
+						
+						<div class="texts">
+
+							<p class="paragraph">Salut, je m’appelle Arnaud ANGELY et je suis étudiant à mi-temps, ou j’apprends la programmation full-stack en Python avec Django et Flask.</p>
+
+							<p class="paragraph"><i>Carte de la Martinique</i></p>
+
+							<p class="paragraph">J’ai 24 ans et je suis originaire de la Martinique, une petite île située dans la Caraïbes. Autodidacte, j’ai découvert la programmation à 14 ans avec le C, j’apprends vite et je suis constamment à la recherche de nouvelles connaissances.</p>
+						</div>
+					</div>
+				</li>
+
+
+				<!-- ######################## SKILLS ######################## -->
+				<li class="page__item" id="skills">
+					<div class="page__header">
+						<p class="page__title">Skills</p>
+						<div class="page__close">X</div>
+					</div>
+
+					<div class="page__body">
+
+						<div class="skills-group">
+
+							<div class="skills-tab">
+
+								<div class="b1">
+
+									<div class="b2">
+
+										<table>
+											<thead>
+												<tr>
+													<th></th>
+													<th>Skill</th>
+													<th>Level</th>
+													<th>Type</th>
+												</tr>
+											</thead>
+
+											<tbody>
+												<tr>
+													<td><div class="arrow arrow-right"></div></td>
+													<td>HTML</td>
+													<td>
+														<span class="high">High</span>
+													</td>
+													<td>
+														<span class="web">Web</span>
+													</td>
+												</tr>
+
+												<tr>
+													<td><div class="arrow arrow-right"></div></td>
+													<td>CSS</td>
+													<td>
+														<span class="high">High</span>
+													</td>
+													<td>
+														<span class="web">Web</span>
+													</td>
+												</tr>
+
+												<tr>
+													<td><div class="arrow arrow-right"></div></td>
+													<td>Javascript</td>
+													<td>
+														<span class="medium">Medium</span>
+													</td>
+													<td>
+														<span class="web">Web</span>
+													</td>
+												</tr>
+
+												<tr>
+													<td><div class="arrow arrow-right"></div></td>
+													<td>Python</td>
+													<td>
+														<span class="medium">Medium</span>
+													</td>
+													<td>
+														<span class="web">Web</span>
+														<span>/</span>
+														<span class="desktop">Desktop</span>
+													</td>
+												</tr>
+
+												<tr>
+													<td><div class="arrow arrow-right"></div></td>
+													<td>C++</td>
+													<td>
+														<span class="medium">Medium</span>
+													</td>
+													<td>
+														<span class="desktop">Desktop</span>
+													</td>
+												</tr>
+
+												<tr>
+													<td><div class="arrow arrow-right"></div></td>
+													<td>React</td>
+													<td>
+														<span class="low">Low</span>
+													</td>
+													<td>
+														<span class="web">Web</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+
+									</div>
+									
+								</div>
+
+							</div>
+
+							<div class="skills-texts">
+
+								<div class="b1">
+
+									<div class="b2">
+
+										<div class="texts">
+											<p class="paragraph">I’m still a junior programmer, but I’m trying to improve everyday.</p>
+
+											<p class="paragraph">C and HTML was the firsts languages I learned. But since a couple years I moved to web languages like CSS and Javascript, and Python for the portability. </p>
+
+											<p class="paragraph">React is pretty new to me, I’m still working on it.</p>
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</li>
+
+
+				<!-- ######################## PROJECTS ######################## -->
+				<li class="page__item" id="projects">
+					<div class="page__header">
+						<p class="page__title">Projects</p>
+						<div class="page__close">X</div>
+					</div>
+
+					<div class="page__body">
+
+						<div class="tablet">
+
+							<div class="content">
+
+								
+								<div class="b1">
+
+									<div class="glitches">
+										
+										<div class="top"></div>
+										<div class="left"></div>
+										<div class="right"></div>
+										<div class="bottom"></div>
+									</div>
+
+									<div class="camera"></div>
+
+									<div class="b2">
+
+										<div class="screen">
+
+											<h3>Select project</h3>
+											
+											<ul class="projects-list">
+							
+												<li class="projects-item">
+
+													<div class="head">
+														<img src="{% static 'img/sun.gif' %}">
+														<p>Adapei</p>
+														
+														<div class="toggle">							
+															<div class="contener">
+																<div class="off">0</div>
+																<div class="on">1</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="body">
+														<p class="paragraph">Aliquam tincidunt arcu turpis, a rutrum sapien pretium at. Sed hendrerit quis felis at feugiat. Nullam hendrerit, augue eu faucibus aliquet, leo ipsum pulvinar sapien, id porta mauris justo ut mauris.</p>
+
+														<div class="links">
+															<a class="links-item" href="#" target="_blank">
+																<img src="{% static 'img/icons/Github.png' %}">
+															</a>
+															<a class="links-item" href="#" target="_blank">
+																<img src="{% static 'img/icons/www.png' %}">
+															</a>
+														</div>
+													</div>
+												</li>
+
+												<li class="projects-item">
+
+													<div class="head">
+														<img src="{% static 'img/sun.gif' %}">
+														<p>Adapei</p>
+														
+														<div class="toggle">							
+															<div class="contener">
+																<div class="off">0</div>
+																<div class="on">1</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="body">
+														<p class="paragraph">Aliquam tincidunt arcu turpis, a rutrum sapien pretium at. Sed hendrerit quis felis at feugiat. Nullam hendrerit, augue eu faucibus aliquet, leo ipsum pulvinar sapien, id porta mauris justo ut mauris.</p>
+
+														<div class="links">
+															<a class="links-item" href="#" target="_blank">
+																<img src="{% static 'img/icons/Github.png' %}">
+															</a>
+															<a class="links-item" href="#" target="_blank">
+																<img src="{% static 'img/icons/www.png' %}">
+															</a>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+										
+									</div>
+
+									<div class="button"></div>
+									
+								</div>
+							</div>							
+						</div>
+
+					</div>
+				</li>
+
+
+				<!-- ######################## CONTACTS ######################## -->
+				<li class="page__item" id="contacts">
+
+					<div class="page__header">
+						<p class="page__title">Contacts</p>
+						<div class="page__close">X</div>
+					</div>
+
+					<div class="page__body">
+
+						<div class="satellite">
+							<img src="{% static 'img/satellite.gif' %}">
+						</div>
+
+						<div class="socials">
+							
+							<ul class="flex-list flex-list-row justify-center icons">
+
+								<li class="flex-list-item icon">
+									<a href="#" target="_blank">
+										<img src="{% static 'img/socials/facebook-8bit.png' %}">
+									</a>
+								</li>
+
+								<li class="flex-list-item icon">
+									<a href="#" target="_blank">
+										<img src="{% static 'img/socials/twitter-8bit.png' %}">
+									</a>
+								</li>
+
+								<li class="flex-list-item icon">
+									<a href="#" target="_blank">
+										<img src="{% static 'img/socials/linkedin-8bit.png' %}">
+									</a>
+								</li>
+							</ul>
+
+							<div class="texts">
+								
+								<p class="paragraph">Lorem ipsum dolor sit amet</p>
+								<p class="paragraph">Lorem ipsum dolor sit amet</p>
+							</div>
+
+							<ul class="flex-list flex-list-row justify-center icons">
+
+								<li class="flex-list-item icon">
+									<a href="{% static 'assets/Resume_EN.pdf' %}" target="_blank" download>
+										<img src="{% static 'img/icons/PDF-8bit.png' %}">
+										<span>EN</span>
+									</a>
+								</li>
+
+								<li class="flex-list-item icon">
+									<a href="{% static 'assets/Resume_FR.pdf' %}" target="_blank" download>
+										<img src="{% static 'img/icons/PDF-8bit.png' %}">
+										<span>FR</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="antenne">
+							<img src="{% static 'img/antenne.gif' %}">
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript" src="{% static 'vendor/jquery-3.3.1/jquery-3.3.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'vendor/popper.js/popper.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'vendor/particles.js/particles-custom.js' %}"></script>
+	<!-- <script type="text/javascript" src="{% static 'vendor/particles.js/particles.min.js' %}"></script> -->
+
+	<script type="text/javascript">
+		class EventsStack {
+			constructor() {
+
+				/* Event
+					callback
+					millisecond
+					lastTimestamp
+					allowRender
+
+				*/
+				this._events = [];
+			}
+
+			register(callback, millisecond) {
+				return this._events.push(
+				{
+					callback: callback,
+					millisecond: millisecond,
+					lastTimestamp: 0,
+					allowRender: false,
+				});
+			}
+
+			unregister(id) {
+				this._events.splice(id, 1);
+			}
+
+			test() {
+				console.log(this._events);
+			}
+
+
+			update(timestamp) {
+				for (let event of this._events) {
+					if ((timestamp - event.lastTimestamp) > event.millisecond) {
+						event.lastTimestamp = timestamp;
+						event.allowRender = true;
+					}
+				}
+			}
+
+			render() {
+				for (let event of this._events) {
+					if (event.allowRender) {
+						event.callback();
+						event.allowRender = false;
+					}
+				}
+			}
+		}
+		
+
+		class Stars {
+			constructor() {
+			
+				this._run = true;
+				this._state = 0;
+				this._stars = document.getElementById('stars');
+			}
+
+			run(value) {
+				this._run = value;
+			}
+
+			update() {
+
+				// console.log(this._state);
+
+				if (!this._run)
+					return;
+
+				switch (this._state) {
+
+					// Create stars
+					// Add fade in effect
+					// Wait 2s
+					case 0:
+						this.create();
+						this._stars.classList.add('show');
+						this._state = 1;
+						break;
+
+					// Do nothing Wait 2s
+					case 1:
+						this._state = 2;
+						break;
+
+					// Fade out stars
+					// Wait 2s
+					case 2:
+						this._stars.classList.remove('show');
+						this._state = 3;
+						break;
+
+
+					// Remove stars
+					// Wait 2s
+					case 3:
+						this.remove();
+						this._state = 0;
+						break;
+				}
+			}
+
+			create() {
+				/*
+					From Canvas Night Sky
+					By Tamuna
+					https://codepen.io/AlienPiglet/pen/hvekG
+				*/
+				var c = document.createElement('canvas');
+					this._stars.appendChild(c);
+
+				var ctx = c.getContext('2d');
+
+				const xMax = c.width = window.screen.availWidth;
+				const yMax = c.height = window.screen.availHeight;
+			
+				const hmTimes = Math.round(xMax + yMax);
+					
+				for(var i=0; i<=hmTimes; i++) {
+				  	var randomX = Math.floor((Math.random()*xMax)+1);
+				  	var randomY = Math.floor((Math.random()*yMax)+1);
+				  	var randomSize = Math.floor((Math.random()*2)+1);
+				  	var randomOpacityOne = Math.floor((Math.random()*9)+1);
+				  	var randomOpacityTwo = Math.floor((Math.random()*9)+1);
+				  	var randomHue = Math.floor((Math.random()*360)+1);
+
+			    	if (randomSize > 1) {
+			      		ctx.shadowBlur = Math.floor((Math.random()*15)+5);
+			      		ctx.shadowColor = "white";
+				  	}
+			    	
+			    	ctx.fillStyle = "hsla("+randomHue+", 30%, 80%, ."+randomOpacityOne+randomOpacityTwo+")";
+				  	ctx.fillRect(randomX, randomY, randomSize, randomSize);
+				}
+			}
+
+			remove() {
+				document.querySelector('#stars canvas').remove();
+			}
+		}
+
+
+		class MessageBox {
+			constructor() {
+
+				this._html_message_box = document.getElementById('msg-box');
+				this._html_message_list = document.getElementById('msg-box-list');
+
+				// Messages properties - text and height
+				this._message_list = [];
+				this._message_list_i = -1;
+
+				// Current message
+				this._sentence = '';
+
+				this._wordPerSecond = 30;
+				this._timeEndFrame = 2000;
+				this._timeBetweenFrames = 2000;
+
+				this._lastTimestamp = 0;
+
+				this._iword = 0;
+				this._word = '';
+
+
+				this._run = true;
+				this._state = 0;
+				this._allowRender = false;
+			}
+
+			init() {
+
+				for (let item of this._html_message_list.children) {
+					console.log(item.innerText);
+					this._message_list.push({
+						height: item.clientHeight,
+						innerText: item.innerText,
+					});
+				}
+
+				// Hide message box list
+				this._html_message_list.style.display = 'none';
+
+				// Debug
+				console.log(this._message_list);
+			}
+
+			events() {}
+
+			update(timestamp) {
+				if (!this._run)
+					return;
+
+				switch (this._state) {
+					case 0:
+						
+						// Re-init timestamp
+						this._lastTimestamp = 0;
+						
+						// Re-init indexes
+						this._iword = 0;
+						this._word = '';
+					
+						// Next sentence (index)
+						if (this._message_list_i < this._message_list.length - 1)
+							++this._message_list_i;
+						else
+							this._message_list_i = 0;
+
+						// Next sentence
+						this._sentence = this._message_list[this._message_list_i].innerText;
+
+
+						// Alter box height
+						this.active_box(this._message_list_i);
+
+
+						// Go to next state
+						this._state = 1;
+						break;
+
+					// Write Msg
+					case 1:
+						// 'FPS' counter for words
+						if (timestamp - this._lastTimestamp > (1000 / this._wordPerSecond)) {				
+
+							// Get words from current sentence
+							if (this._iword < this._sentence.length) {
+								this._word = this._sentence[this._iword];
+								++this._iword;
+							}
+
+							// If sentence is over go to next state
+							else
+								this._state = 2;
+
+							this._allowRender = true;
+							this._lastTimestamp = timestamp;
+						}
+						break;
+
+					// Msg complete - Wait
+					case 2:
+						if (timestamp - this._lastTimestamp > this._timeEndFrame) {
+							
+							this._state = 3;
+							this.deactive_box();
+							this._lastTimestamp = timestamp;
+						}
+
+						break;
+
+					// Time between two frames
+					case 3:
+						if (timestamp - this._lastTimestamp > this._timeBetweenFrames) {
+							this._state = 0;
+							this._lastTimestamp = timestamp;
+						}
+
+						break;
+
+					default:
+						break;
+				}
+			}
+
+			render() {
+				if (!this._allowRender)
+					return;
+
+				switch (this._state) {
+					// Write Msg
+					case 1:
+						this._html_message_box.innerHTML += this._word;
+						break;
+
+					// Msg complete - Wait
+					case 2:
+						break;
+
+					// Fade Msg
+					case 3:
+						break;
+
+					// Request new Msg
+					case 4:
+						break;
+
+					default:
+						break;
+				}
+
+				this._allowRender = false;
+			}
+
+
+			run(value) {
+				this._run = value;
+				this._allowRender = value;
+			}
+
+			active_box(index) {				
+				this._html_message_box.innerHTML = '';
+				this._html_message_box.style.height = this._message_list[index].height + 'px';
+				this._html_message_box.classList.add('active');
+			}
+
+			deactive_box() {
+				this._html_message_box.classList.remove('active');
+			}
+		}
+
+
+
+		// EventsStack Callbacks
+			function events_stack_test1() {
+				console.log('2s print');
+			}
+
+			function events_stack_test2() {
+				console.log('4s print');
+			}
+
+
+		var state = 0;
+			state = 10;
+
+		var es = new EventsStack();
+		var msg = new MessageBox();
+		var stars = new Stars();
+
+		function init() {
+			var menu = document.getElementById('menu');
+			var page = document.getElementById('page');
+
+			var menu__glitch = document.getElementById('menu__glitch');
+			var menu__trigger = document.getElementById('menu__trigger');
+
+			var menu__items = document.getElementsByClassName('menu__item');
+			var page__items = document.getElementsByClassName('page__item');
+
+			var page__close = document.getElementsByClassName('page__close');
+
+
+			// Message Box initialization
+			msg.init();
+			msg.run(true);
+
+
+			// EventStack registering
+			es.register(function() {
+				stars.update();
+			}, 2000);
+			// es.test();
+
+
+			// Stars
+			// stars.run(true);
+
+
+			// Open Menu
+			menu__trigger.addEventListener('click', function() {
+				menu.classList.add('active');
+				menu__glitch.classList.add('active');
+			});
+
+
+			// Open page
+			for (var i = 0; i < menu__items.length; ++i) {
+				menu__items[i].addEventListener('click', function() {
+					var attr = this.getAttribute('target-id');
+					
+					if (attr == 'back') {
+						menu.classList.remove('active');
+					}
+
+					// OPEN PAGE
+					else {
+						console.log(attr);
+						// Close default tab
+						page__items[0].classList.remove('active');
+
+
+						// Open Subpage
+						var subpage = document.getElementById(attr);
+						console.log(subpage);	
+						if (subpage == undefined)
+							console.log('subpage attr is undefined');
+						else
+							subpage.classList.add('active');
+					}
+				});
+			}
+
+
+			// Close menu
+			menu__glitch.addEventListener('click', function(e) {
+				menu.classList.remove('active');
+				menu__glitch.classList.remove('active');
+			});
+
+
+			// Close page
+			for (var i = 0; i < page__close.length; ++i) {
+				page__close[i].addEventListener('click', function(e) {
+					// Close every tab expect the 1st(default)
+					for (var i = 1; i < page__items.length; ++i)
+						page__items[i].classList.remove('active');
+
+					// Open
+					page__items[0].classList.add('active');
+				});
+			}
+		}
+
+
+		function events(timestamp) {}
+
+					
+		function update(timestamp) {
+			switch (state) {
+				case 10:
+					es.update(timestamp);
+					msg.update(timestamp);
+					break;
+
+				default:
+					break;
+			}
+		}
+
+
+		function render(timestamp) {
+			switch (state) {
+				case 10:
+					es.render();
+					msg.render();
+					break;
+
+				default:
+					break;
+			}
+		}
+
+
+		function mainloop(timestamp) {
+
+			events(timestamp);
+
+			update(timestamp);
+
+			render(timestamp);
+
+			requestAnimationFrame(mainloop);
+		}
+
+		window.onload = function() {
+
+			init();
+			requestAnimationFrame(mainloop);
+		}
+	</script>
+
+	<!-- Slide Toggle -->
+	<script type="text/javascript">
+		$(function() {
+			$('.projects-list li .head').click(function() {
+
+				var li = $(this).parent();
+				var body = li.children('.body');
+
+				// The 0 1 Widget
+				var toggle = $(this).children('.toggle').children('.contener');
+
+				// Close every bodies and reset toggles
+				/*var bodies = $('.projects-list li .body');
+					bodies.slideUp();
+				var toggles = $('.projects-list .toggle');
+					toggle.removeClass('active');*/
+
+				body.slideToggle(function() {
+					toggle.toggleClass('active');
+
+					/*
+					i.removeClass();
+					if ($(this).css('display') == 'none') {
+						i.addClass('fas fa-toggle-off');
+					}
+					else {
+						i.addClass('fas fa-toggle-on');
+					}
+					*/
+				});
+			});
+		});
+	</script>
+
+
+	<!-- Junks -->
+	<!--
+	<script type="text/javascript">
+		class StarsParticleJS {
+			constructor() {
+
+				// time between creation and destruction
+				this._timeBetween = 5000;
+
+				// 
+				this._lastTimestamp = 0;
+
+				// true = if stars was removed
+				// false = if stars was created
+				this._hasStars = false;
+
+				// 
+				this._run = true;
+
+				// 
+				this._state = 0;
+			}
+
+			run(value) {
+				if (!(this._run = value)) {
+					if (this._hasStars)
+						this._state = 3;
+
+					else 
+						this._state = 0;
+				}
+				else {
+					if (this._hasStars)
+						this._state = 1;
+
+					else 
+						this._state = 0;
+				}
+			}
+
+			update(timestamp) {
+				switch(this._state) {
+
+					// Create stars
+					case 0:
+ 						this.create();
+ 						this._hasStars = true;
+
+ 						if (this._run)
+ 							this._state = 1;
+
+ 						else
+ 							this._state = 3;
+ 						break;
+
+
+ 					// Wait n seconds
+ 					case 1:
+ 						if ((timestamp - this._lastTimestamp) > this._timeBetween) {
+ 							this._state = (this._hasStars) ? 2 : 0;
+ 							this._hasStars ^= 1;
+ 							this._lastTimestamp = timestamp;
+ 							console.log(this._hasStars);
+ 						}
+ 						break;
+
+
+ 					// Remove stars
+ 					case 2:
+ 						this.remove();
+ 						this._state = 1;
+ 						break;
+
+
+ 					// Do nothing
+ 					case 3:
+ 						break;
+				}
+			}
+
+			render() {}
+
+			create() {
+				const xMax = window.screen.availWidth;
+				const yMax = window.screen.availHeight;
+			
+				const hmTimes = Math.round(xMax + yMax);
+				console.log('hmTimes: ' + hmTimes);
+
+				particlesJS("stars", {
+		  			"particles": {
+		    			"number": {
+		      				"value": hmTimes,
+		      				"density": {
+		        				"enable": true,
+		  			      		"value_area": 800
+		  			    	}
+		  			 	},
+		  			  	"color": {
+		  			  		
+		  			    	"value": "#fff" // Sky blue	
+		  			    	// "value": "#ffea00" // Sky blue	
+		  			    	// "value": "#A0D0CB" // Sky blue	
+		  			    	// "value": "#F9BE00" // Egg Yellow
+		  			    	// "value": "#EFA00B" // Egg Yellow (darker)
+		  			    	// "value": "#edd312" // Egg Yellow (site)
+		  			  	},
+		  			  	"shape": {
+		  			    	"type": "circle",
+		  			    	"stroke": {
+		  			    	  	"width": 0,
+		  			    	  	"color": "#000000"
+		  			    	},
+		  			    	"polygon": {
+		  			    	  	"nb_sides": 5
+		  			    	},
+		  			    	"image": {
+		  			    	  	"src": "img/github.svg",
+		  			    	  	"width": 100,
+		  			    	  	"height": 100
+		  			    	}
+		  			  	},
+		  			  	"opacity": {
+		  			    	"value": 0.5,
+		  			    	"random": false,
+		  			    	"anim": {
+		  			      		"enable": false,
+		  			      		"speed": 1,
+		  			      		"opacity_min": 0.1,
+		  			      		"sync": false
+		  			    	}
+		  			  	},
+		  			  	"size": {
+		  			    	"value": 2,
+		  			    	"random": true,
+		  			    	"anim": {
+		  			      		"enable": false,
+		  			      		"speed": 40,
+		  			      		"size_min": 0.1,
+		  			      		"sync": false
+		  			    	}
+		  			  	},
+		  			  	"line_linked": {
+		  			    	"enable": false,
+		  			    	"distance": 150,
+		  			    	"color": "#ffffff",
+		  			    	"opacity": 0.4,
+		  			    	"width": 1
+		  			  	},
+		  			  	"move": {
+		  			    	"enable": false,
+		  			    	"speed": 6,
+		  			    	"direction": "none",
+		  			    	"random": false,
+		  			    	"straight": false,
+		  			    	"out_mode": "out",
+		  			    	"bounce": false,
+		  			    	"attract": {
+		  			      		"enable": false,
+		  			      		"rotateX": 600,
+		  			      		"rotateY": 1200
+		  			    	}
+		  			  	}
+		  			},
+		  			"interactivity": {
+		  			  	"detect_on": "canvas",
+		  			  	"events": {
+		  			    	"onhover": {
+		  			      		"enable": false,
+		  			      		"mode": "grab"
+		  			    	},
+		  			    	"onclick": {
+		  			      		"enable": false,
+		  			      		"mode": "push"
+		  			    	},
+		  			    	"resize": false
+		  			  	},
+		  			  	"modes": {
+		  			    	"grab": {
+		  			      		"distance": 140,
+		  			      		"line_linked": {
+		  			        		"opacity": 1
+		  			      		}
+		  			    	},
+		  			    	"bubble": {
+		  			      		"distance": 400,
+		  			      		"size": 40,
+		  			      		"duration": 2,
+		  			      		"opacity": 8,
+		  			      		"speed": 3
+		  			    	},
+		  			    	"repulse": {
+		  			      		"distance": 200,
+		  			      		"duration": 0.4
+		  			    	},
+		  			    	"push": {
+		  			      		"particles_nb": 4
+		  			    	},
+		  			    	"remove": {
+		  			      		"particles_nb": 2
+		  			    	}
+		  			  	}
+		  			},
+		  			"retina_detect": true
+				});
+			}
+
+			remove() {
+				document.getElementById('stars').innerHTML = '';
+			}
+		}
+
+
+		class Stars {
+			constructor() {
+
+				// time between creation and destruction
+				this._timeBetween = 5000;
+
+				// 
+				this._lastTimestamp = 0;
+
+				// true = if stars was removed
+				// false = if stars was created
+				this._hasStars = false;
+
+				// 
+				this._run = true;
+
+				// 
+				this._state = 0;
+			}
+
+			run(value) {
+				if (!(this._run = value)) {
+					if (this._hasStars)
+						this._state = 3;
+
+					else 
+						this._state = 0;
+				}
+				else {
+					if (this._hasStars)
+						this._state = 1;
+
+					else 
+						this._state = 0;
+				}
+			}
+
+			update(timestamp) {
+				switch(this._state) {
+
+					// Create stars
+					case 0:
+ 						this.create();
+ 						this._hasStars = true;
+
+ 						if (this._run)
+ 							this._state = 1;
+
+ 						else
+ 							this._state = 3;
+ 						break;
+
+
+ 					// Wait n seconds
+ 					case 1:
+ 						if ((timestamp - this._lastTimestamp) > this._timeBetween) {
+ 							this._state = (this._hasStars) ? 2 : 0;
+ 							this._hasStars ^= 1;
+ 							this._lastTimestamp = timestamp;
+ 						}
+ 						break;
+
+
+ 					// Remove stars
+ 					case 2:
+ 						this.remove();
+ 						this._state = 1;
+ 						break;
+
+
+ 					// Do nothing
+ 					case 3:
+ 						break;
+				}
+			}
+
+			render() {}
+
+			create() {
+				/*
+					From Canvas Night Sky
+					By Tamuna
+					https://codepen.io/AlienPiglet/pen/hvekG
+				*/
+				var c = document.createElement('canvas');
+				var stars = document.getElementById('stars');
+					stars.appendChild(c);
+
+				var ctx = c.getContext('2d');
+
+				const xMax = c.width = window.screen.availWidth;
+				const yMax = c.height = window.screen.availHeight;
+			
+				const hmTimes = Math.round(xMax + yMax);
+					
+				for(var i=0; i<=hmTimes; i++) {
+				  	var randomX = Math.floor((Math.random()*xMax)+1);
+				  	var randomY = Math.floor((Math.random()*yMax)+1);
+				  	var randomSize = Math.floor((Math.random()*2)+1);
+				  	var randomOpacityOne = Math.floor((Math.random()*9)+1);
+				  	var randomOpacityTwo = Math.floor((Math.random()*9)+1);
+				  	var randomHue = Math.floor((Math.random()*360)+1);
+
+			    	if (randomSize > 1) {
+			      		ctx.shadowBlur = Math.floor((Math.random()*15)+5);
+			      		ctx.shadowColor = "white";
+				  	}
+			    	
+			    	ctx.fillStyle = "hsla("+randomHue+", 30%, 80%, ."+randomOpacityOne+randomOpacityTwo+")";
+				  	ctx.fillRect(randomX, randomY, randomSize, randomSize);
+				}
+			}
+
+			remove() {
+				document.querySelector('#stars canvas').remove();
+			}
+		}
+	</script> -->
+</body>
+</html>
