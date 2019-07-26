@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['a-resume.herokuapp.com']
 
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_DOMAIN = '127.0.0.1'
 
 # Application definition
 
@@ -39,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +82,11 @@ WSGI_APPLICATION = 'Resume.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'Resume_Django',
+        'USER': 'postgre',
+        'PASSWORD': 'toor',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -102,6 +110,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Rest Framework settings
+# https://www.django-rest-framework.org/
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20
+}
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -119,8 +135,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'www/static'),
+]
+
+PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
 
 django_heroku.settings(locals())

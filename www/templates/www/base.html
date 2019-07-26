@@ -1,0 +1,721 @@
+<!-- 
+	TODO
+		Project
+			Border
+			Image optimization
+ -->
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arnaud's Resume</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- <link rel="stylesheet" type="text/css" href="vendor/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/all.min.css"> -->
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="icon" href="{% static 'img/favicon.png' %}" type="image/gif" sizes="16x16">
+
+</head>
+
+<style type="text/css">
+	@font-face {
+	  	font-family: "8bit_wonder";
+	  	src: url("{% static 'font/8bit_wonder/8-BIT WONDER.TTF' %}");
+	}
+</style>
+
+<body>
+
+	<div id="core">
+
+		<div id="background" class="parallax">
+
+			<div id="stars"></div>
+		</div>
+
+		<div id="foreground">
+
+			<div class="foreground-glitch">
+				
+				<div id="titles">
+					<div class="name">
+						<img src="{% static 'img/Names.png' %}">
+					</div>
+
+					<div class="title">
+
+						{% block title %}
+						{% endblock %}
+
+					</div>
+				</div>
+
+				<div class="messages">
+
+					<div class="msg-box-list">
+						{% if messages %}
+
+							{% for message in messages %}
+								<div class="message">{{ message | safe }}</div>
+							{% endfor %}
+
+						{% endif %}
+					</div>
+
+					<div class="msg-box message active"></div>
+				</div>
+
+				<div class="character">
+					<div class="character__sprite">
+						
+					</div>
+				</div>
+			</div>
+
+
+			<div id="about-me">
+
+				<div class="texts">
+					{% if bio %}
+							
+						{{ bio | safe }}
+
+					{% endif %}
+
+					<!-- <p class="paragraph">Salut, je m’appelle Arnaud. J’étudie actuellement la programmation en Python avec une spécialisation web.</p>
+
+					<p class="paragraph">Mon objectif est et de tirer le maximum de ce l’informatique peut offrir.</p>
+
+					<p class="paragraph">Autodidacte, j’ai découvert la programmation à 14 ans avec le C. J’apprends vite et je suis constamment à la recherche de nouvelles connaissances.</p> -->
+
+				</div>
+			</div>
+
+
+			<!-- Rocket BG -->
+			<div id="rocket">
+				<div id="rocket-glitch" class="parallax"></div>
+			</div>
+
+
+			<!-- Socials -->
+			<div id="socials">
+				
+				<!-- -->
+				<ul class="flex-list flex-list-row justify-center icons">
+
+					{% if social %}
+
+						{% for item in social %}
+							<li class="flex-list-item icon">
+								<a href="{{ item.src }}" target="_blank">
+									<img src="{% static item.img %}" loading="lazy">
+								</a>
+							</li>
+						{% endfor %}
+
+					{% endif %}
+
+				</ul>
+				
+
+				<div class="texts">
+					
+					{% block socials %}
+					{% endblock %}	
+					
+				</div>
+			</div>
+
+
+			<div id="skills">
+				
+				<div class="skills-group">
+
+					<div class="skills-tab">
+
+						<div class="retro-borders">
+							
+							<div class="b1">
+
+								<div class="b2">
+
+								</div>
+								
+							</div>
+						</div>
+
+					</div>
+
+					<div class="skills-texts">
+
+						<div class="retro-borders">
+
+							<div class="b1">
+
+								<div class="b2">
+
+									<div class="texts">
+										
+										{% if skills %}
+											{{ skills | safe }}
+										{% endif %}
+
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+
+			<div id="pdfs">
+
+				<div class="texts">
+
+					{% block resumes %}
+					{% endblock %}	
+
+				</div>
+
+				<ul class="flex-list flex-list-row justify-center icons">
+
+					<li class="flex-list-item icon">
+						<a href="{% static 'assets/Resume_EN.pdf' %}" target="_blank" download>
+							<img src="{% static 'img/icons/PDF-8bit.png' %}">
+							<span>EN</span>
+						</a>
+					</li>
+
+					<li class="flex-list-item icon">
+						<a href="{% static 'assets/Resume_FR.pdf' %}" target="_blank" download>
+							<img src="{% static 'img/icons/PDF-8bit.png' %}">
+							<span>FR</span>
+						</a>
+					</li> 
+				</ul>				
+			</div>
+
+
+			<div id="projects" class="section">
+
+				{% block projects %}
+				{% endblock %}
+
+				<!-- SCIFI NAV By Rafael González -->
+				<!-- https://codepen.io/rgg/pen/MpMmmP -->
+				<div class="scifi"></div>
+
+
+			</div>
+
+
+			<div id="satellite">
+				<img src="{% static 'img/satellite.gif' %}">
+			</div>
+
+
+			<div id="contacts" class="section">
+
+				{% block contact %}
+				{% endblock %}
+
+			</div>
+
+
+			<div id="antenne">
+				<img src="{% static 'img/antenne.gif' %}">
+			</div>
+
+			<div id="test"></div>
+			
+
+			<!-- <div class="foreground-glitch">
+				
+				<div id="titles">
+					<div class="name">
+						<img src="{% static 'img/Names.png' %}">
+					</div>
+
+					<div class="title">
+						<p>Front-end Web Developer</p>
+					</div>
+				</div>
+			</div> -->
+
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript" src="{% static 'vendor/jquery-3.3.1/jquery-3.3.1.min.js' %}"></script>
+	<!-- <script type="text/javascript" src="{% static 'vendor/popper.js/popper.min.js' %}"></script> -->
+	<!-- <script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script> -->
+	<!-- <script type="text/javascript" src="{% static 'vendor/particles.js/particles-custom.js' %}"></script> -->
+	<!-- <script type="text/javascript" src="{% static 'vendor/particles.js/particles.min.js' %}"></script> -->
+
+
+	<!-- React JS -->
+	<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+ 	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+ 	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+	<script type="text/javascript">
+		var foreground = document.getElementById('foreground');
+		var glitch = document.querySelector('.foreground-glitch');
+
+		var clone = glitch.cloneNode(true);
+		foreground.appendChild(clone);
+
+
+		class EventsStack {
+			constructor() {
+
+				/* Event
+					callback
+					millisecond
+					lastTimestamp
+					allowRender
+
+				*/
+				this._events = [];
+			}
+
+			register(callback, millisecond) {
+				return this._events.push(
+				{
+					callback: callback,
+					millisecond: millisecond,
+					lastTimestamp: 0,
+					allowRender: false,
+				});
+			}
+
+			unregister(id) {
+				this._events.splice(id, 1);
+			}
+
+			test() {
+				console.log(this._events);
+			}
+
+
+			update(timestamp) {
+				for (let event of this._events) {
+					if ((timestamp - event.lastTimestamp) > event.millisecond) {
+						event.lastTimestamp = timestamp;
+						event.allowRender = true;
+					}
+				}
+			}
+
+			render() {
+				for (let event of this._events) {
+					if (event.allowRender) {
+						event.callback();
+						event.allowRender = false;
+					}
+				}
+			}
+		}
+		
+
+		class Stars {
+			constructor() {
+			
+				this._run = true;
+				this._state = 0;
+				this._stars = document.getElementById('stars');
+			}
+
+			run(value) {
+				this._run = value;
+			}
+
+			update() {
+
+				// console.log(this._state);
+
+				if (!this._run)
+					return;
+
+				switch (this._state) {
+
+					// Create stars
+					// Add fade in effect
+					// Wait 2s
+					case 0:
+						this.create();
+						this._stars.classList.add('show');
+						this._state = 1;
+						break;
+
+					// Do nothing Wait 2s
+					case 1:
+						this._state = 2;
+						break;
+
+					// Fade out stars
+					// Wait 2s
+					case 2:
+						this._stars.classList.remove('show');
+						this._state = 3;
+						break;
+
+
+					// Remove stars
+					// Wait 2s
+					case 3:
+						this.remove();
+						this._state = 0;
+						break;
+				}
+			}
+
+			create() {
+				/*
+					From Canvas Night Sky
+					By Tamuna
+					https://codepen.io/AlienPiglet/pen/hvekG
+				*/
+				var c = document.createElement('canvas');
+					this._stars.appendChild(c);
+
+				var ctx = c.getContext('2d');
+
+				var body = document.querySelector('body'); 
+
+				const xMax = c.width = body.clientWidth;
+				const yMax = c.height = body.clientHeight;
+			
+				const hmTimes = Math.round(xMax + yMax);
+					
+				for(var i=0; i<=hmTimes; i++) {
+				  	var randomX = Math.floor((Math.random()*xMax)+1);
+				  	var randomY = Math.floor((Math.random()*yMax)+1);
+				  	var randomSize = Math.floor((Math.random()*2)+1);
+				  	var randomOpacity = Math.floor((Math.random()*9)+1);
+				  	var randomHue = Math.floor((Math.random()*360)+1);
+
+			    	if (randomSize > 1) {
+			      		// ctx.shadowBlur = Math.floor((Math.random()*15)+5);
+			      		// ctx.shadowColor = "white";
+				  	}
+			    	
+			    	ctx.fillStyle = "hsla("+randomHue+", 30%, 80%, ."+randomOpacity+")";
+				  	ctx.fillRect(randomX, randomY, randomSize, randomSize);
+				}
+			}
+
+			remove() {
+				document.querySelector('#stars canvas').remove();
+			}
+		}
+
+
+		class MessageBox {
+			constructor() {
+
+				// Only one list is needed
+				this._html_message_list = document.querySelector('.msg-box-list');
+
+				this._html_message_boxes = document.getElementsByClassName('msg-box');
+
+				// Messages properties - text and height
+				this._message_list = [];
+				this._message_list_i = -1;
+
+				// Current message
+				this._sentence = '';
+
+				this._wordPerSecond = 30;
+				this._timeEndFrame = 2000;
+				this._timeBetweenFrames = 2000;
+
+				this._lastTimestamp = 0;
+
+				this._iword = 0;
+				this._word = '';
+
+
+				this._run = true;
+				this._state = 0;
+				this._allowRender = false;
+			}
+
+			init() {
+
+				for (let item of this._html_message_list.children) {
+					console.log(item.innerText);
+					this._message_list.push({
+						height: item.clientHeight,
+						innerText: item.innerText,
+					});
+				}
+
+				// Hide message box list
+				// this._html_message_list.style.display = 'none';
+
+				// Debug
+				// console.log(this._message_list);
+			}
+
+			events() {}
+
+			update(timestamp) {
+				if (!this._run)
+					return;
+
+				switch (this._state) {
+					case 0:
+						
+						// Re-init timestamp
+						this._lastTimestamp = 0;
+						
+						// Re-init indexes
+						this._iword = 0;
+						this._word = '';
+					
+						// Next sentence (index)
+						if (this._message_list_i < this._message_list.length - 1)
+							++this._message_list_i;
+						else
+							this._message_list_i = 0;
+
+						// Next sentence
+						this._sentence = this._message_list[this._message_list_i].innerText;
+
+
+						// Alter box height
+						this.active_box(this._message_list_i);
+
+
+						// Go to next state
+						this._state = 1;
+						break;
+
+					// Write Msg
+					case 1:
+						// 'FPS' counter for words
+						if (timestamp - this._lastTimestamp > (1000 / this._wordPerSecond)) {				
+
+							// Get words from current sentence
+							if (this._iword < this._sentence.length) {
+								this._word = this._sentence[this._iword];
+								++this._iword;
+							}
+
+							// If sentence is over go to next state
+							else {
+								this._state = 2;
+								// console.log('State 1 end');
+							}
+
+							this._allowRender = true;
+							this._lastTimestamp = timestamp;
+						}
+						break;
+
+					// Msg complete - Wait
+					case 2:
+						if (timestamp - this._lastTimestamp > this._timeEndFrame) {
+							// console.log('State 2 end');
+							// console.time('Wait');
+
+							this._state = 3;
+							this.deactive_box();
+							this._lastTimestamp = timestamp;
+						}
+						break;
+
+					// Time between two frames
+					case 3:
+						if (timestamp - this._lastTimestamp > this._timeBetweenFrames) {
+							// console.timeEnd('Wait');
+							// console.log('State 3 end');
+
+							this._state = 0;
+							this._lastTimestamp = timestamp;
+						}
+						break;
+
+					default:
+						break;
+				}
+			}
+
+			render() {
+				if (!this._allowRender)
+					return;
+
+				switch (this._state) {
+					// Write Msg
+					case 1:
+						for (let item of this._html_message_boxes)
+							item.innerHTML += this._word;
+						break;
+
+					// Msg complete - Wait
+					case 2:
+						break;
+
+					// Fade Msg
+					case 3:
+						break;
+
+					// Request new Msg
+					case 4:
+						break;
+
+					default:
+						break;
+				}
+
+				this._allowRender = false;
+			}
+
+			run(value) {
+				this._run = value;
+				this._allowRender = value;
+			}
+
+			active_box(index) {
+				for (let item of this._html_message_boxes) {
+
+					item.innerHTML = '';
+					item.style.height = this._message_list[index].height + 'px';
+					item.classList.add('active');
+				}		
+			}
+
+			deactive_box() {
+				for (let item of this._html_message_boxes)
+					item.classList.remove('active');
+			}
+		}
+
+
+		class Character {}
+
+
+		// EventsStack Callbacks
+			function events_stack_test1() {
+				console.log('2s print');
+			}
+
+			function events_stack_test2() {
+				console.log('4s print');
+			}
+
+
+		var state = 0;
+			state = 10;
+
+		var es = new EventsStack();
+		var stars = new Stars();
+		var msg = new MessageBox();
+		
+
+		function init() {
+			var menu = document.getElementById('menu');
+			var page = document.getElementById('page');
+
+			var menu__glitch = document.getElementById('menu__glitch');
+			var menu__trigger = document.getElementById('menu__trigger');
+
+			var menu__items = document.getElementsByClassName('menu__item');
+			var page__items = document.getElementsByClassName('page__item');
+
+			var page__close = document.getElementsByClassName('page__close');
+
+
+			// Message Box initialization
+			msg.init();
+			msg.run(true);
+			// msg.run(false);
+
+
+			// EventStack registering
+			es.register(function() {
+				stars.update();
+			}, 2000);
+			// es.test();
+
+
+			// Stars
+			stars.run(true);
+		}
+
+
+		function events(timestamp) {}
+
+					
+		function update(timestamp) {
+			switch (state) {
+				case 10:
+					es.update(timestamp);
+					msg.update(timestamp);
+					break;
+
+				default:
+					break;
+			}
+		}
+
+
+		function render(timestamp) {
+			switch (state) {
+				case 10:
+					es.render();
+					msg.render();
+					break;
+
+				default:
+					break;
+			}
+		}
+
+
+		function mainloop(timestamp) {
+
+			events(timestamp);
+
+			update(timestamp);
+
+			render(timestamp);
+
+			requestAnimationFrame(mainloop);
+		}
+
+		window.onload = function() {
+
+			init();
+			requestAnimationFrame(mainloop);
+		}
+	</script>
+
+	<script type="text/babel" src="{% static 'react/Skills.js' %}"></script>
+	<script type="text/babel" src="{% static 'react/Projects.js' %}"></script>
+	<script type="text/babel">
+		ReactDOM.render(<Skills />, document.querySelector('.skills-tab .b2'));
+		ReactDOM.render(<Projects />, document.querySelector('.scifi'));
+	</script>
+</body>
+</html>

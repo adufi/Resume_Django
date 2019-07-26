@@ -362,6 +362,7 @@ li {
 			#titles: 110
 			#messages: 120
 				#msg-box: 130
+			.scifi-nav-modal: 160;
 	****************************************************/
 
 
@@ -518,7 +519,7 @@ li {
 	/****************************************************
 		MESSAGES
 	****************************************************/
-	#messages {
+	.messages {
 		height: 140px;
 		color: black;
 
@@ -548,7 +549,7 @@ li {
 			@extend .font-press-start;
 		}
 
-		#msg-box-list {
+		.msg-box-list {
 			max-width: 300px;
 			font-size: 14px;
 
@@ -556,15 +557,20 @@ li {
 			left: 0;
 			position: absolute;
 			visibility: visible;
+			opacity: 0;
 	
 			.message {
 				top: 0;
 				left: 0;
 				position: absolute;
+
+				p {
+					margin: 0;
+				}
 			}
 		}
 
-		#msg-box {
+		.msg-box {
 			display: none;			
 
 			&.active {
@@ -572,6 +578,53 @@ li {
 				z-index: 120;
 				position: relative;
 			}
+		}
+	}
+
+
+	/****************************************************
+		CHARACTER
+	****************************************************/
+	.character {
+
+		&__sprite {
+			width: 82px;
+    		height: 100px;
+			margin: auto;
+
+			background-size: cover;
+			background-image: url(../img/character/character-sheet.png);
+
+			animation: run 0.8s steps(4) infinite;
+			/*animation: jump 2s linear 0s infinite normal;*/
+		}
+
+		@keyframes jump {
+		  	0%{
+				transform: translateY(0);
+		  	}
+		  	20%{
+				transform: translateY(0);
+		  	}
+		  	40%{
+				transform: translateY(0);
+		  	}
+		  	50%{
+				transform: translateY(-30px);
+		  	}
+		  	60%{
+				transform: translateY(0);
+		  	}
+		  	80%{
+				transform: translateY(0);
+		  	}
+		  	100%{
+				transform: translateY(0);
+		  	}
+		}
+
+		@keyframes run {
+			100% { background-position: -330px; }
 		}
 	}
 
@@ -600,6 +653,9 @@ li {
 		max-width: 700px;
 		text-align: center;
 		box-sizing: content-box;
+
+   		font-size: 14px;
+		line-height: 20px;
 
 		.paragraph {
 			margin: 0 auto;
@@ -693,7 +749,7 @@ li {
 
 				table {
 					/*width: 100%;*/
-					max-width: 700px;
+					min-width: 700px;
 					padding: 10px;
 
 					display: block;
@@ -737,6 +793,8 @@ li {
 					}
 
 					span {
+						text-transform: capitalize;
+
 						&.low { color: #B7B142; }
 						&.medium { color: #2D5D74; }
 						&.high { color: #40397F; }
@@ -828,8 +886,6 @@ li {
 			max-height: calc(100vh - 100px);
 
 			overflow-y: auto;
-
-			padding-bottom: 20px;
 			text-align: center;
 
 			.project__header {
@@ -846,12 +902,16 @@ li {
 					background: #8B3270;
 					background: #383B38;
 
+				    overflow: hidden;
+					text-overflow: ellipsis;
+				    /* word-break: break-word; */
+
 					@extend .font-8bit-wonder;
 				}
 			}
 
 			.project__body {
-				padding: 0 5px;
+				padding: 5px;
 
 				.project__image {
 					height: 200px;
@@ -863,17 +923,43 @@ li {
 				}
 
 				.project__desc {
-					font-size: 13px;
+					font-size: 12px;
+					line-height: 15px;
 				}
 
-				.project__tags {}
+				.project__tags {
+					margin: 10px 0;
+    				text-align: center;
+
+				    span {
+					    margin: 5px;
+					    padding: 5px 10px;
+					    border-radius: 5px;
+
+					    display: inline-block;
+					    
+					    font-size: 10px;
+					    text-align: center;
+					    font-weight: bold;
+				    	
+				    	&.Cpp 		{ background-color: #cd6155; }
+				    	&.PHP 		{ background-color: #af7ac5; }
+					    &.HTML 		{ background-color: #5499c7; }
+					    &.React 	{ background-color: #dc7633; }
+					    &.Csharp 	{ background-color: #52be80; }
+					    &.Python 	{ background-color: #99a3a4; }
+				    	&.Javascript { background-color: #2c3e50; }
+				    }
+				}
 
 				.project__links {
 					text-align: center;
 
 					&__item {
-						width: 50px;
-						height: 50px;
+						width: 35px;
+						height: 35px;
+						margin: 0 5px;
+
 						text-decoration: none;
 						display: inline-block;
 
@@ -960,6 +1046,7 @@ li {
 
 					border: 2px solid white;
 					box-sizing: border-box;
+					border-radius: 5px;
 				}
 
 				.buttons__next {}
@@ -1255,7 +1342,7 @@ li {
 
 		top: 0;
 		left: 0;
-		z-index: 60;
+		z-index: 160;
 		position: fixed;
 
 		background-color: rgba(black, 0.5);
@@ -1396,11 +1483,6 @@ li {
 	  		}
   		}
 	}
-
-
-	/****************************************************
-		MESSAGE
-	****************************************************/
 
 
 
@@ -1715,8 +1797,6 @@ li {
 
 
 #test4 {
-
-
 		
 }
 

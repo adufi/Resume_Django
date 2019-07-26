@@ -1,0 +1,36 @@
+{% extends 'www/base.html' %}
+
+{% block title %}
+	<p>Junior Web Developer</p>
+{% endblock %}
+
+{% block socials %}
+	<p class="paragraph">Contact me on my social networks</p>
+{% endblock %}
+
+{% block resumes %}
+	<p class="paragraph">My resumes</p>
+{% endblock %}
+
+{% block projects %}
+	<h3 class="section-title">My projects</h3>
+{% endblock %}
+
+{% block contact %}
+	<h3 class="section-title">Contact me</h3>
+	<p class="paragraph important">(Not ready yet :)</p>
+
+	<form action="" method="POST">
+
+		{% csrf_token %}
+		
+		<input type="email" name="contact__mail" placeholder="E-mail">
+
+		<input type="text" name="contact__object" placeholder="Object">
+
+		<textarea name="contact__message" rows="10"
+				  placeholder="Write your message here"></textarea>
+
+		<input type="submit" name="contact__submit" value="SUBMIT" disabled>
+	</form>
+{% endblock %}
