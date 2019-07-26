@@ -649,7 +649,6 @@ li {
   width: 280px;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
-  padding-bottom: 20px;
   text-align: center;
 }
 #core #projects .project .project__header .project__title {
@@ -666,7 +665,7 @@ li {
   /* word-break: break-word; */
 }
 #core #projects .project .project__body {
-  padding: 0 5px;
+  padding: 5px;
 }
 #core #projects .project .project__body .project__image {
   height: 200px;
@@ -789,6 +788,7 @@ li {
   height: 20px;
   border: 2px solid white;
   box-sizing: border-box;
+  border-radius: 5px;
 }
 #core #projects .tablet .glitches {
   width: 100%;
