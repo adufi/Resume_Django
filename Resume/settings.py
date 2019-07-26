@@ -85,14 +85,14 @@ WSGI_APPLICATION = 'Resume.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
+    'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': 'Resume_Django',
     #     'USER': 'postgres',
     #     'PASSWORD': 'toor',
     #     'HOST': '127.0.0.1',
     #     'PORT': '5432',
-    # }
+    }
 }
 
 db_from_env = dj_database_url.config(conn_max_age = 600)
