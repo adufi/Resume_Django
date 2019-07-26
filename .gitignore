@@ -16,6 +16,7 @@ db.sqlite3
 local_settings.py
 
 # Ignore directories
+sql/
 venv/
 __pycache__/
 
