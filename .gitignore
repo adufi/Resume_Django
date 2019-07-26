@@ -19,6 +19,7 @@ local_settings.py
 sql/
 venv/
 __pycache__/
+ressources_ignore/
 
 /www/static/img_ignore/
 /www/static/old_snippets_ignore/
